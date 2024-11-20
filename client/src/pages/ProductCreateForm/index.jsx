@@ -10,10 +10,11 @@ export default function ProductCreateForm() {
   const postForm = async () =>{
     const product = await createProduct(formData);
     if (product.status === 201) {
-     return navigate();
-    }
+      redirectToSuccessPage(product.payload._id);
+    } else{
     setInfo(product.message);
   }
+}
 
   const handleChange = (e) =>{
     setFormData({...formData,[e.target.name]: e.target.value});
@@ -23,6 +24,11 @@ export default function ProductCreateForm() {
     e.preventDefault();
     postForm();
   }
+
+  const redirectToSuccessPage = (id) => {
+    return navigate(`/created-product/${id}`)
+  }
+
 
   return (
     <>
