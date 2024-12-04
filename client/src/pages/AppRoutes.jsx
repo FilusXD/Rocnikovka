@@ -3,6 +3,7 @@ import Home from "./Home";
 import ProductCreateForm from "./ProductCreateForm";
 import CreatedProduct from "./ProductCreateForm/CreatedProduct";
 import ProductList from "./ProductList";
+import ProductView from "./ProductView";
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
         <Route path="/add-product" element={<ProductCreateForm/>}/>
         <Route path="/created-product/:id" element={<CreatedProduct/>}/>
         <Route path="/view-products" element={<ProductList/>}/>
+        <Route path="/product/:id" element={<ProductView/>}/>
     </Routes>
     </BrowserRouter>
     </>
