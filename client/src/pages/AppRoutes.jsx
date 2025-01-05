@@ -5,10 +5,15 @@ import CreatedProduct from "./ProductCreateForm/CreatedProduct";
 import ProductList from "./ProductList";
 import ProductView from "./ProductView";
 import ProductUpdateForm from "./ProductUpdateForm";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 
 export default function AppRoutes() {
   return (
     <>
+    <Navbar/>
+   
     <BrowserRouter>
     <Routes>
         <Route path="/" element ={<Home />} />
@@ -17,8 +22,11 @@ export default function AppRoutes() {
         <Route path="/view-products" element={<ProductList/>}/>
         <Route path="/product/:id" element={<ProductView/>}/>
         <Route path="/update-product/:id" element={<ProductUpdateForm/>}/>
+       
     </Routes>
+   
     </BrowserRouter>
+    <Footer/>
     </>
   )
 }
