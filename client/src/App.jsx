@@ -1,9 +1,21 @@
 import AppRoutes from "./pages/AppRoutes"
+import Layout from "../src/components/Layout/index";
+
 
 function App() {
-  return(
+  return (
     <>
-    <AppRoutes/>
+
+      <Layout>
+        <AppRoutes />
+      </Layout>
+
+
+
+
+
+
+
     </>
   )
 }
