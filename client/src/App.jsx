@@ -1,14 +1,14 @@
 import AppRoutes from "./pages/AppRoutes"
-import Layout from "../src/components/Layout/index";
+import Navbar from "./components/navbar/Navbar"
 
 
 function App() {
   return (
     <>
 
-      <Layout>
-        <AppRoutes />
-      </Layout>
+      <Navbar />
+      <AppRoutes />
+
 
 
 

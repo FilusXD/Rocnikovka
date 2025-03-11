@@ -5,7 +5,7 @@ import CreatedProduct from "./ProductCreateForm/CreatedProduct";
 import ProductList from "./ProductList";
 import ProductView from "./ProductView";
 import ProductUpdateForm from "./ProductUpdateForm";
-import ProductDetail from "./ProductDetail";
+
 
 
 export default function AppRoutes() {
@@ -15,7 +15,6 @@ export default function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<ProductDetail />} />
           <Route path="/add-product" element={<ProductCreateForm />} />
           <Route path="/created-product/:id" element={<CreatedProduct />} />
           <Route path="/view-products" element={<ProductList />} />
