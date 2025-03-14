@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import Hero from "../../components/hero/Hero"
 
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     
     <>
   
-   
+   <Hero/>
     
     </>
     
