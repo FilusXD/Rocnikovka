@@ -10,6 +10,10 @@ import LoginSignup from "./LoginSignup";
 import Product from "./Product"
 import Cart from "./Cart";
 import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
+import men_banner from "../components/assets/banner_mens.png"
+import women_banner from "../components/assets/banner_women.png"
+import kid_banner from "../components/assets/banner_kids.png"
 
 
 export default function AppRoutes() {
@@ -20,9 +24,9 @@ export default function AppRoutes() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/games" element={<ShopCategory category="game" />} />
-          <Route path="/accessories" element={<ShopCategory category="accessory" />} />
-          <Route path="/merch" element={<ShopCategory category="merch" />} />
+          <Route path="/games" element={<ShopCategory banner={men_banner} category="men" />} />
+          <Route path="/accessories" element={<ShopCategory banner={women_banner} category="women" />} />
+          <Route path="/merch" element={<ShopCategory banner={kid_banner} category="kid" />} />
           <Route path="/product" element={<Product />}>
             <Route path=':productId' element={<Product />} />
           </Route>
@@ -36,6 +40,7 @@ export default function AppRoutes() {
           <Route path="/update-product/:id" element={<ProductUpdateForm />} />
 
         </Routes>
+        <Footer/>
 
       </BrowserRouter>
 
