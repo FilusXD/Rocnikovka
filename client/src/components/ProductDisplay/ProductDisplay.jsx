@@ -40,9 +40,9 @@ const ProductDisplay = (props) => {
         <div className="productdisplay-right-platforms">
           <h1>Select Platform</h1>
           <div className="productdisplay-right-platform">
-            <div>Playstation 5</div>
-            <div>Xbox Series</div>
-            <div>Playstation 4</div>
+            <div>PS5</div>
+            <div>PS4</div>
+            <div>Xbox SX</div>
             <div>Xbox One</div>
             <div>Nintendo Switch</div>
           </div>
