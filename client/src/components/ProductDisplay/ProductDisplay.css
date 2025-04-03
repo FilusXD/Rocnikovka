@@ -253,6 +253,9 @@
         flex-direction: row;
         margin: auto;
     }
+    .productdisplay-img{
+        margin-bottom: auto;
+    }
     .productdisplay-img-list{
         flex-direction: column;
         gap: 8px;
