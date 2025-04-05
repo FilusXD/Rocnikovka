@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose');
 mongoose
 .connect(`mongodb+srv://admin:adminadmin@cluster0.sz0r6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
