@@ -1,3 +1,4 @@
+const products = require("../models/products");
 const Product = require("../models/products")
 
 exports.getALLProducts = async (req, res, next) => {
@@ -33,12 +34,23 @@ exports.getProductById = async (req, res, next) => {
     }
 };
 exports.createProduct = async (req, res, next) => {
+    let products = await Product.find({});
+    let id;
+    if(products.length>0){
+        let last_product_array = products.slice(-1);
+        let last_product = last_product_array[0];
+        id = last_product.id+1;
+    }else{
+        id=1;
+    }
     try{
       const data = new Product({
+        id: id,
         name: req.body.name,
-        platform: req.body.platform,
-        developer: req.body.developer,
-        price: req.body.price
+        image: req.body.image,
+        category: req.body.category,
+        new_price: req.body.new_price,
+        old_price: req.body.old_price
       });
       const result = await data.save();
       if(result){

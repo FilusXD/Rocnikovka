@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const port = 4000;
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -14,6 +15,8 @@ mongoose
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const multer = require('multer');
+const { error } = require('console');
 var app = express();
 
 // view engine setup
@@ -30,6 +33,37 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+
+// image storage engine
+const storage = multer.diskStorage({
+  destination: './upload/images',
+  filename:(req,file,cb)=>{
+    return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+  }
+})
+
+const upload = multer({storage:storage})
+
+// upload endpoint for images
+app.use('/images',express.static('upload/images'))
+
+app.post('/upload',upload.single('product'),(req,res)=>{
+  res.json({
+    success:1,
+    image_url:`http://localhost:${port}/images/${req.file.filename}`
+  })
+})
+
+// 
+
+
+app.listen(port,(error)=>{
+  if (!error) {
+    console.log("Server is running on Port " +port)
+  }else{
+    console.log("Error " +error)
+  }
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
