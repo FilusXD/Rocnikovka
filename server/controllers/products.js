@@ -1,5 +1,5 @@
 const products = require("../models/products");
-const Product = require("../models/products")
+const Product = require("../models/products");
 
 exports.getALLProducts = async (req, res, next) => {
     try{
@@ -90,7 +90,7 @@ exports.updateProduct = async (req, res, next) => {
 };
 exports.deleteProduct = async (req, res, next) => {
     try{
-        const result = await Product.findByIdAndDelete(req.params.id);
+        const result = await  Product.findOneAndDelete({ id: Number(req.params.id) });
         if(result){
           return res.status(200).send({
               message: "Product deleted",
