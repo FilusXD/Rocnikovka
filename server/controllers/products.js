@@ -55,11 +55,13 @@ exports.createProduct = async (req, res, next) => {
       const result = await data.save();
       if(result){
         return res.status(201).send({
+            success:true,
             message: "Product created",
             payload: result
         });
       }
       res.status(500).send({
+        success:true,
         message: "Product not created"
     })
     } catch (err){
