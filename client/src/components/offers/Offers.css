@@ -17,7 +17,7 @@
 
 .offers-left h1{
     color: #171717;
-    font-size: 80px;
+    font-size: 65px;
     font-weight: 600;
 }
 
@@ -46,6 +46,9 @@
     align-items: center;
     justify-content: flex-end;
     padding: 50px;
+}
+.offers-right img{
+    width: 310px;
 }
 
 @media (max-width:1280px){
