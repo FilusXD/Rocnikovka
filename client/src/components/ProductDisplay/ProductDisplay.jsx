@@ -35,21 +35,16 @@ const ProductDisplay = (props) => {
           <div className="productdisplay-right-price-new">${product.new_price}</div>
         </div>
         <div className="productdisplay-right-description">
-          Experience an epic historical action-adventure story set in feudal Japan! Become a lethal shinobi Assassin and a powerful legendary samurai as you explore a beautiful open world in a time of chaos. Switch seamlessly between two unlikely allies as you discover their common destiny and usher in a new era for Japan.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis accusamus odit perferendis assumenda reiciendis magni, cupiditate, totam sequi voluptates maiores expedita! Laudantium minima pariatur excepturi tempore error odio quis! Impedit.
         </div>
         <div className="productdisplay-right-platforms">
-          <h1>Select Platform</h1>
+          <h1>Select Edition</h1>
           <div className="productdisplay-right-platform">
-            <div>PS5</div>
-            <div>PS4</div>
-            <div>Xbox SX</div>
-            <div>Xbox One</div>
-            <div>Nintendo Switch</div>
+            <div>Standart</div>
+            <div>Deluxe</div>
           </div>
         </div>
         <button onClick={() =>{addToCart(product.id)}}>ADD TO CART</button>
-        <p className='productdisplay-right-category'><span>Category : Singleplayer</span></p>
-        <p className='productdisplay-right-category'><span>Genre : Open World, Action, RPG</span></p>
       </div>
     </div>
   )

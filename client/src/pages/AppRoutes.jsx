@@ -11,9 +11,10 @@ import Product from "./Product"
 import Cart from "./Cart";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
-import men_banner from "../components/assets/banner_mens.png"
-import women_banner from "../components/assets/banner_women.png"
-import kid_banner from "../components/assets/banner_kids.png"
+import games_banner from "../components/assets/games_banner.jpg"
+import accessories_banner from "../components/assets/accessories_banner.jpg"
+import retro_banner from "../components/assets/retro_banner.jpg"
+
 
 
 export default function AppRoutes() {
@@ -24,9 +25,9 @@ export default function AppRoutes() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/games" element={<ShopCategory banner={men_banner} category="games" />} />
-          <Route path="/accessories" element={<ShopCategory banner={women_banner} category="accessories" />} />
-          <Route path="/retro" element={<ShopCategory banner={kid_banner} category="retro" />} />
+          <Route path="/games" element={<ShopCategory banner={games_banner} category="games" />} />
+          <Route path="/accessories" element={<ShopCategory banner={accessories_banner} category="accessories" />} />
+          <Route path="/retro" element={<ShopCategory banner={retro_banner} category="retro" />} />
           <Route path="/product" element={<Product />}>
             <Route path=':productId' element={<Product />} />
           </Route>

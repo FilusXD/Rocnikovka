@@ -10,14 +10,21 @@ const Product = () => {
   const {all_product} = useContext(ShopContext);
   const {productId} = useParams();
   const product = all_product.find((e) => e.id === Number(productId))
-  return (
-    <div>
-      <Breadcrum product={product}/>
-      <ProductDisplay product={product}/>
-      <DescriptionBox/>
-      <RelatedProducts currentProductId={product.id} category={product.category}/>
-    </div>
-  )
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }else{
+    return (
+      <div>
+        <Breadcrum product={product}/>
+        <ProductDisplay product={product}/>
+        <DescriptionBox/>
+        <RelatedProducts currentProductId={product.id} category={product.category}/>
+      </div>
+     
+    )
+  }
+ 
 }
 
 export default Product
