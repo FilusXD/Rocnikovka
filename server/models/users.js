@@ -4,7 +4,7 @@ const Schema = mongoose.Schema({
     name: {type: String, require: true},
     email: {type: String, require: true, unique: true},
     password:{type: String, require: true},
-    cart_Data:{type: Object, require: true},
+    cartData:{type: Object, require: true},
     date:{type: Date, default:Date.now}
 });
 
