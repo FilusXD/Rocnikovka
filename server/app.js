@@ -19,6 +19,7 @@ const multer = require('multer');
 const { error } = require('console');
 var app = express();
 const Users = require('./models/users');
+const Product = require('./models/products');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -121,7 +122,13 @@ app.post('/login', async (req,res)=>{
   }
 })
 
-
+// endpoint for new collections data
+app.get('/newcollections', async (req,res)=>{
+  let products = await Product.find({});
+  let newcollection = products.slice(1).slice(-8);
+  console.log("NewCollection Fetched");
+  res.send(newcollection);
+})
 
 
 // catch 404 and forward to error handler

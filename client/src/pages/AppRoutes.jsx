@@ -24,9 +24,9 @@ export default function AppRoutes() {
       <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/games" element={<ShopCategory banner={men_banner} category="men" />} />
-          <Route path="/accessories" element={<ShopCategory banner={women_banner} category="women" />} />
-          <Route path="/retro" element={<ShopCategory banner={kid_banner} category="kid" />} />
+          <Route path="/games" element={<ShopCategory banner={men_banner} category="games" />} />
+          <Route path="/accessories" element={<ShopCategory banner={women_banner} category="accessories" />} />
+          <Route path="/retro" element={<ShopCategory banner={kid_banner} category="retro" />} />
           <Route path="/product" element={<Product />}>
             <Route path=':productId' element={<Product />} />
           </Route>
