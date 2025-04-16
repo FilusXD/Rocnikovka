@@ -6,16 +6,10 @@ import { ShopContext } from '../../context/ShopContext'
 
 const ProductDisplay = (props) => {
   const { product } = props;
-  const {addToCart} = useContext(ShopContext);
+  const { addToCart } = useContext(ShopContext);
   return (
     <div className='productdisplay'>
       <div className='productdisplay-left'>
-        <div className="productdisplay-img-list">
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-        </div>
         <div className="productdisplay-img">
           <img className='productdisplay-main-img' src={product.image} alt="" />
         </div>
@@ -31,12 +25,15 @@ const ProductDisplay = (props) => {
           <p>(122)</p>
         </div>
         <div className="productdisplay-right-prices">
-          <div className="productdisplay-right-price-old">${product.old_price}</div>
+          {props.old_price && props.old_price !== "" && (
+            <div className="item-price-old">${props.old_price}</div>
+          )}
           <div className="productdisplay-right-price-new">${product.new_price}</div>
         </div>
         <div className="productdisplay-right-description">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis accusamus odit perferendis assumenda reiciendis magni, cupiditate, totam sequi voluptates maiores expedita! Laudantium minima pariatur excepturi tempore error odio quis! Impedit.
         </div>
+        {product.category === "games" && (
         <div className="productdisplay-right-platforms">
           <h1>Select Edition</h1>
           <div className="productdisplay-right-platform">
@@ -44,7 +41,8 @@ const ProductDisplay = (props) => {
             <div>Deluxe</div>
           </div>
         </div>
-        <button onClick={() =>{addToCart(product.id)}}>ADD TO CART</button>
+        )}
+        <button onClick={() => { addToCart(product.id) }}>ADD TO CART</button>
       </div>
     </div>
   )
