@@ -11,7 +11,8 @@ const RelatedProducts = ({ currentProductId, category }) => {
       .then((data) => {
         const filtered = data.payload.filter(
           (item) => item.category === category && item.id !== currentProductId
-        );
+        )
+        .slice(0, 4);
         setRelatedProducts(filtered);
       });
   }, [currentProductId, category]);
