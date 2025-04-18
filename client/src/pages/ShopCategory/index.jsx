@@ -32,9 +32,13 @@ const ShopCategory = (props) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
+      const currentScroll = window.scrollY;
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
+      setTimeout(() => {
+        window.scrollTo({ top: currentScroll, behavior: 'auto' });
+      }, 0);
     };
   
     document.addEventListener('mousedown', handleClickOutside);
@@ -43,15 +47,12 @@ const ShopCategory = (props) => {
     };
   }, []);
 
-  const handleSortOption = (e, option) => {
-    e.preventDefault();
-    const scrollY = window.scrollY;
-
+  const handleSortOption = (option) => {
+    const currentScroll = window.scrollY;
     setSortOption(option);
     setDropdownOpen(false);
-
     setTimeout(() => {
-      window.scrollTo({ top: scrollY, behavior: 'auto' });
+      window.scrollTo({ top: currentScroll, behavior: 'auto' });
     }, 0);
   };
 
@@ -80,10 +81,10 @@ const ShopCategory = (props) => {
           Sort by <img src={dropdown_icon} alt="" />
           {dropdownOpen && (
             <div className="shopcategory-sort-dropdown">
-              <p onClick={(e) => handleSortOption(e, 'priceLowToHigh')}>Price: Low to High</p>
-              <p onClick={(e) => handleSortOption(e, 'priceHighToLow')}>Price: High to Low</p>
-              <p onClick={(e) => handleSortOption(e, 'az')}>Name: A-Z</p>
-              <p onClick={(e) => handleSortOption(e, 'za')}>Name: Z-A</p>
+              <p onClick={() => handleSortOption( 'priceLowToHigh')}>Price: Low to High</p>
+              <p onClick={() => handleSortOption( 'priceHighToLow')}>Price: High to Low</p>
+              <p onClick={() => handleSortOption( 'az')}>Name: A-Z</p>
+              <p onClick={() => handleSortOption( 'za')}>Name: Z-A</p>
             </div>
           )}
         </div>
