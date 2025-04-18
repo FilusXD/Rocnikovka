@@ -33,15 +33,6 @@ const ProductDisplay = (props) => {
         <div className="productdisplay-right-description">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis accusamus odit perferendis assumenda reiciendis magni, cupiditate, totam sequi voluptates maiores expedita! Laudantium minima pariatur excepturi tempore error odio quis! Impedit.
         </div>
-        {product.category === "games" && (
-        <div className="productdisplay-right-platforms">
-          <h1>Select Edition</h1>
-          <div className="productdisplay-right-platform">
-            <div>Standart</div>
-            <div>Deluxe</div>
-          </div>
-        </div>
-        )}
         <button onClick={() => { addToCart(product.id) }}>ADD TO CART</button>
       </div>
     </div>
