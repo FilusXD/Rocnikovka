@@ -1,10 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import ProductCreateForm from "./ProductCreateForm";
-import CreatedProduct from "./ProductCreateForm/CreatedProduct";
-import ProductList from "./ProductList";
-import ProductView from "./ProductView";
-import ProductUpdateForm from "./ProductUpdateForm";
 import ShopCategory from "./ShopCategory";
 import LoginSignup from "./LoginSignup";
 import Product from "./Product"
@@ -33,12 +28,6 @@ export default function AppRoutes() {
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignup />} />
-
-          <Route path="/add-product" element={<ProductCreateForm />} />
-          <Route path="/created-product/:id" element={<CreatedProduct />} />
-          <Route path="/view-products" element={<ProductList />} />
-          <Route path="/product/:id" element={<ProductView />} />
-          <Route path="/update-product/:id" element={<ProductUpdateForm />} />
 
         </Routes>
         <Footer/>

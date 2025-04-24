@@ -3,29 +3,22 @@ import { ShopContext } from '../../context/ShopContext';
 import './ShopCategory.css';
 import dropdown_icon from '../../components/assets/dropdown_icon.png';
 import Item from '../../components/item/Item';
-import { useLocation } from 'react-router-dom';
+
 
 const ShopCategory = (props) => {
   const { all_product } = useContext(ShopContext);
   const [visibleCount, setVisibleCount] = useState(12);
-  const location = useLocation();
   const [sortOption, setSortOption] = useState('default');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    if (location.state && location.state.fromProductPage) {
-      return;
-    }
-    setVisibleCount(12);
-  }, [props.category, location.key]);
 
   const handleExploreMore = (e) => {
     e.preventDefault();
     const currentScroll = window.scrollY;
     setVisibleCount(prev => prev + 12);
     setTimeout(() => {
-      window.scrollTo({ top: currentScroll, behavior: 'auto' });
+      window.scrollTo({ top: currentScroll });
     }, 0);
 
   };
@@ -37,10 +30,10 @@ const ShopCategory = (props) => {
         setDropdownOpen(false);
       }
       setTimeout(() => {
-        window.scrollTo({ top: currentScroll, behavior: 'auto' });
+        window.scrollTo({ top: currentScroll });
       }, 0);
     };
-  
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -48,12 +41,8 @@ const ShopCategory = (props) => {
   }, []);
 
   const handleSortOption = (option) => {
-    const currentScroll = window.scrollY;
     setSortOption(option);
     setDropdownOpen(false);
-    setTimeout(() => {
-      window.scrollTo({ top: currentScroll, behavior: 'auto' });
-    }, 0);
   };
 
   const filteredProducts = all_product.filter(item => item.category === props.category);
@@ -74,17 +63,20 @@ const ShopCategory = (props) => {
           <span>Showing 1-{visibleProducts.length}</span> out of {filteredProducts.length} products
         </p>
         <div className="shopcategory-sort" ref={dropdownRef} onClick={(e) => {
+          const currentScroll = window.scrollY;
           e.preventDefault();
-          e.stopPropagation();
           setDropdownOpen(prev => !prev);
+          setTimeout(() => {
+            window.scrollTo({ top: currentScroll });
+          }, 0);
         }}>
           Sort by <img src={dropdown_icon} alt="" />
           {dropdownOpen && (
             <div className="shopcategory-sort-dropdown">
-              <p onClick={() => handleSortOption( 'priceLowToHigh')}>Price: Low to High</p>
-              <p onClick={() => handleSortOption( 'priceHighToLow')}>Price: High to Low</p>
-              <p onClick={() => handleSortOption( 'az')}>Name: A-Z</p>
-              <p onClick={() => handleSortOption( 'za')}>Name: Z-A</p>
+              <p onClick={() => handleSortOption('priceLowToHigh')}>Price: Low to High</p>
+              <p onClick={() => handleSortOption('priceHighToLow')}>Price: High to Low</p>
+              <p onClick={() => handleSortOption('az')}>Name: A-Z</p>
+              <p onClick={() => handleSortOption('za')}>Name: Z-A</p>
             </div>
           )}
         </div>
