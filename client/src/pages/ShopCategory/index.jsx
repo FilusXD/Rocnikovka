@@ -15,8 +15,8 @@ const ShopCategory = (props) => {
 
   const handleExploreMore = (e) => {
     e.preventDefault();
-    const currentScroll = window.scrollY;
     setVisibleCount(prev => prev + 12);
+    const currentScroll = window.scrollY;
     setTimeout(() => {
       window.scrollTo({ top: currentScroll });
     }, 0);
